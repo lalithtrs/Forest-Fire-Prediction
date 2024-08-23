@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for additional styling -->
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FWI Prediction</h1>
+        <form action="{{url_for('predict')}}" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="Temperature" placeholder="Temperature" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="RH" placeholder="Relative Humidity (RH)" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Ws" placeholder="Wind Speed (Ws)" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Rain" placeholder="Rain" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="FFMC" placeholder="Fine Fuel Moisture Code (FFMC)" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="DMC" placeholder="Duff Moisture Code (DMC)" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="ISI" placeholder="Initial Spread Index (ISI)" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Classes" placeholder="Fire Classes" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Region" placeholder="Region" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        <h2>FWI Prediction is {{results}}</h2>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
